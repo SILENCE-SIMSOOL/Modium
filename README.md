@@ -1,6 +1,4 @@
-[![Watch the 15-second Modium film](docs/media/film-cover.jpg)](https://raw.githubusercontent.com/SILENCE-SIMSOOL/Modium/main/docs/media/modium_motiongraphics.mp4)
-
-[Watch the film · 15 seconds](https://raw.githubusercontent.com/SILENCE-SIMSOOL/Modium/main/docs/media/modium_motiongraphics.mp4)
+https://github.com/user-attachments/assets/6a24e536-1047-4af4-8adf-e54a94e17ebe
 
 # Modium
 
