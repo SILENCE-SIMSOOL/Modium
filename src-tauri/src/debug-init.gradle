@@ -1,0 +1,41 @@
+gradle.beforeProject { project ->
+	project.pluginManager.withPlugin("java") {
+		project.sourceSets.configureEach { sourceSet ->
+			def output = project.layout.buildDirectory.dir("modium-debug/" + sourceSet.name)
+			sourceSet.java.destinationDirectory.set(output)
+		}
+	}
+}
+gradle.projectsEvaluated {
+	rootProject.allprojects { project ->
+		project.tasks.withType(JavaExec).configureEach { run ->
+			if (!name.toLowerCase().contains("client")) return
+			jvmArgs("-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=127.0.0.1:@JDWP_PORT@")
+			run.doFirst {
+				// Eclipse and javac name synthetic methods differently. Use Eclipse bytecode
+				// for project classes at launch and keep Gradle-only generated classes.
+				def metadata = project.file(".classpath")
+				if (!metadata.isFile()) return
+				def factory = javax.xml.parsers.DocumentBuilderFactory.newInstance()
+				factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)
+				def entries = factory.newDocumentBuilder().parse(metadata).getElementsByTagName("classpathentry")
+				project.sourceSets.each { sourceSet ->
+					def target = project.tasks.named(sourceSet.compileJavaTaskName).get().destinationDirectory.get().asFile
+					if (!target.isDirectory()) return
+					entries.each { entry ->
+						if (entry.getAttribute("kind") != "src" || !sourceSet.java.srcDirs.contains(project.file(entry.getAttribute("path")))) return
+						def output = entry.getAttribute("output")
+						if (!output) return
+						project.copy {
+							from(project.file(output))
+							into(target)
+							include("**/*.class")
+							eachFile { file -> if (!new File(target, file.path).isFile()) file.exclude() }
+							includeEmptyDirs = false
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,70 @@
+
+:root {
+	color-scheme: light dark;
+	--bg-canvas: light-dark(#F6F7FA, #0D0F14);
+	--bg-panel: light-dark(#FFFFFF, #141822);
+	--bg-elevated: light-dark(#EEF1F6, #1B202E);
+	--bg-control: light-dark(#E5E8EF, #222838);
+	--bg-hover: light-dark(rgba(25, 31, 40, 0.05), rgba(255, 255, 255, 0.05));
+	--bg-active: light-dark(rgba(25, 31, 40, 0.09), rgba(255, 255, 255, 0.09));
+	--border-hairline: light-dark(rgba(25, 31, 40, 0.09), rgba(255, 255, 255, 0.08));
+	--border-strong: light-dark(rgba(25, 31, 40, 0.16), rgba(255, 255, 255, 0.14));
+	--text-primary: light-dark(#191F28, #F2F4F8);
+	--text-secondary: light-dark(#4E5968, #A4AEC4);
+	--text-tertiary: light-dark(#6B7684, #6C768D);
+	--text-disabled: light-dark(#B0B8C1, #495164);
+	--accent: #3182F6;
+	--accent-hover: light-dark(#1B64DA, #448EF7);
+	--accent-weak-bg: light-dark(rgba(49, 130, 246, 0.12), rgba(49, 130, 246, 0.14));
+	--accent-weak-text: light-dark(#1B64DA, #6BA6FF);
+	--status-success: light-dark(#15803D, #2ECC71);
+	--status-success-bg: light-dark(rgba(21, 128, 61, 0.12), rgba(46, 204, 113, 0.14));
+	--status-warning: light-dark(#B45309, #F59E0B);
+	--status-warning-bg: light-dark(rgba(180, 83, 9, 0.12), rgba(245, 158, 11, 0.14));
+	--status-danger: light-dark(#DC2626, #EF4444);
+	--status-danger-bg: light-dark(rgba(220, 38, 38, 0.11), rgba(239, 68, 68, 0.14));
+	--status-danger-text: light-dark(#B91C1C, #FCA5A5);
+	--console-err: light-dark(#DC2626, #F87171);
+	--console-warn: light-dark(#B45309, #FBBF24);
+	--dialog-backdrop: light-dark(rgba(15, 23, 42, 0.42), rgba(6, 8, 12, 0.72));
+	--scroll-thumb: light-dark(rgba(25, 31, 40, 0.2), rgba(255, 255, 255, 0.15));
+	--scroll-thumb-hover: light-dark(rgba(25, 31, 40, 0.36), rgba(255, 255, 255, 0.28));
+	--squircle-blue-bg: light-dark(#E8F3FF, rgba(49, 130, 246, 0.16));
+	--squircle-blue-fg: light-dark(#1B64DA, #7DB4FF);
+	--squircle-mint-bg: light-dark(#DCFCE7, rgba(46, 204, 113, 0.14));
+	--squircle-mint-fg: light-dark(#15803D, #6EE7A8);
+	--squircle-violet-bg: light-dark(#EDE9FE, rgba(139, 92, 246, 0.16));
+	--squircle-violet-fg: light-dark(#6D28D9, #B99BFF);
+	--squircle-amber-bg: light-dark(#FEF3C7, rgba(245, 158, 11, 0.15));
+	--squircle-amber-fg: light-dark(#B45309, #FBBF49);
+	--squircle-teal-bg: light-dark(#CCFBF1, rgba(20, 184, 166, 0.15));
+	--squircle-teal-fg: light-dark(#0F766E, #5EEAD4);
+	--squircle-slate-bg: light-dark(#E2E8F0, rgba(148, 163, 184, 0.14));
+	--squircle-slate-fg: light-dark(#334155, #CBD5E1);
+	--radius-xs: 4px;
+	--radius-s: 6px;
+	--radius-m: 10px;
+	--radius-l: 12px;
+	--radius-xl: 16px;
+	--radius-pill: 999px;
+	--font-sans: "Pretendard Variable", Pretendard, "Segoe UI", "Malgun Gothic", -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+	--titlebar-h: 38px;
+	--activitybar-w: 42px;
+	--tabbar-h: 32px;
+	--breadcrumb-h: 22px;
+	--statusbar-h: 24px;
+	--shadow-pill: light-dark(0 2px 8px rgba(15, 23, 42, 0.08), 0 2px 10px rgba(0, 0, 0, 0.32));
+	--shadow-floating: light-dark(0 8px 24px rgba(15, 23, 42, 0.12), 0 8px 24px rgba(0, 0, 0, 0.42));
+	--shadow-dialog: light-dark(0 18px 48px rgba(15, 23, 42, 0.18), 0 18px 48px rgba(0, 0, 0, 0.62));
+	--ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+	--dur-fast: 120ms;
+	--dur-base: 180ms;
+
+	&:has(> head > meta[name="color-scheme"][content="dark"]) {
+		color-scheme: dark;
+	}
+	&:has(> head > meta[name="color-scheme"][content="light"]) {
+		color-scheme: light;
+	}
+}
